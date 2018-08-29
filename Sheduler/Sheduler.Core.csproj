@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Enums\" />
+    <Folder Include="Anotation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Hangfire.Core">
+      <HintPath>..\..\..\..\Users\scn\.nuget\packages\hangfire.core\1.7.0-beta1\lib\netstandard1.3\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.MemoryStorage.Core">
+      <HintPath>..\..\..\..\Users\scn\.nuget\packages\hangfire.memorystorage.core\1.4.0\lib\netstandard1.3\Hangfire.MemoryStorage.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
