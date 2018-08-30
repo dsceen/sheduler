@@ -5,6 +5,7 @@ using Sheduler.Core.Interfaces;
 using Sheduler.Core;
 using Microsoft.Extensions.Options;
 using Sheduler.Core.Configuration;
+using Sheduler.Infrastructure.Services;
 
 namespace Sheduler.Infrastructure.IoC
 {
@@ -17,6 +18,9 @@ namespace Sheduler.Infrastructure.IoC
 
             // Sheduler
             services.AddSingleton<IDllSheduler, DllSheduler>();
+
+            //Notification service
+            services.AddTransient<IShedulerNotification, NotificationService>();
 
             // Hangfire library for background jobs
             services.AddHangfire(x => x.UseMemoryStorage());

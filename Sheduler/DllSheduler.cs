@@ -10,13 +10,15 @@ namespace Sheduler.Core
     {
         private readonly ShedulerSetting _shedulerSetting;
         private readonly ILogger _logger;
+        private readonly IShedulerNotification _shedulerNotification;
         private bool _status;
 
         private static readonly object StatusLocker = new object();
 
-        public DllSheduler(ShedulerSetting shedulerSetting, ILogger<DllSheduler> logger)
+        public DllSheduler(ShedulerSetting shedulerSetting, ILogger<DllSheduler> logger, IShedulerNotification shedulerNotification)
         {
             _logger = logger;
+            _shedulerNotification = shedulerNotification;
             _shedulerSetting = shedulerSetting;
         }
 
@@ -27,6 +29,7 @@ namespace Sheduler.Core
                 if (!_status)
                 {
                     _logger.LogInformation("Started");
+                    _shedulerNotification.SendNotificationAsync("Sheduler started");
                     //ToDo: do work
                     //RecurringJob.AddOrUpdate(() => Console.WriteLine("Do work every minute " + DateTime.Now),
                     //Cron.MinuteInterval(1));
