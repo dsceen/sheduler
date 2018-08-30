@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Sheduler.Infrastructure.Settings
+namespace Sheduler.Core.Configuration
 {
     public class ShedulerSetting
     {

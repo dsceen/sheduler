@@ -3,8 +3,8 @@ using Hangfire.MemoryStorage;
 using Microsoft.Extensions.DependencyInjection;
 using Sheduler.Core.Interfaces;
 using Sheduler.Core;
-using Sheduler.Infrastructure.Settings;
 using Microsoft.Extensions.Options;
+using Sheduler.Core.Configuration;
 
 namespace Sheduler.Infrastructure.IoC
 {

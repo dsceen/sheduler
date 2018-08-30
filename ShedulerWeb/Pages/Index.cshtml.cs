@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Options;
-using Sheduler.Infrastructure.Settings;
+using Sheduler.Core.Configuration;
 
 namespace ShedulerWeb.Pages
 {

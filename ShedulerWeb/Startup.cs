@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,9 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Sheduler.Core.Configuration;
 using Sheduler.Core.Interfaces;
 using Sheduler.Infrastructure.IoC;
-using Sheduler.Infrastructure.Settings;
 
 namespace ShedulerWeb
 {
@@ -60,7 +61,6 @@ namespace ShedulerWeb
             app.UseHangfireServer();
 
             sheduler.Start();
-
             //RecurringJob.AddOrUpdate(() => Console.WriteLine("Do work every minute " + DateTime.Now),
             //    Cron.MinuteInterval(1));
         }
