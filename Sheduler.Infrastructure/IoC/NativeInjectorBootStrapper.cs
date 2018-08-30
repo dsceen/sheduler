@@ -3,6 +3,8 @@ using Hangfire.MemoryStorage;
 using Microsoft.Extensions.DependencyInjection;
 using Sheduler.Core.Interfaces;
 using Sheduler.Core;
+using Sheduler.Infrastructure.Settings;
+using Microsoft.Extensions.Options;
 
 namespace Sheduler.Infrastructure.IoC
 {
@@ -10,7 +12,9 @@ namespace Sheduler.Infrastructure.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            
+            // Configuration
+            services.AddSingleton(x => x.GetRequiredService<IOptions<ShedulerSetting>>().Value);
+
             // Sheduler
             services.AddSingleton<IDllSheduler, DllSheduler>();
 

@@ -1,8 +1,5 @@
 using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Hangfire;
-using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +11,6 @@ using Microsoft.Extensions.Options;
 using Sheduler.Core.Interfaces;
 using Sheduler.Infrastructure.IoC;
 using Sheduler.Infrastructure.Settings;
-using ShedulerWeb.Extensions;
 
 namespace ShedulerWeb
 {
@@ -41,10 +37,6 @@ namespace ShedulerWeb
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddSingleton(x => x.GetRequiredService<IOptions<ShedulerSetting>>().Value);
-
-            //services.AddSingleton(
-            //    resolver => resolver.GetRequiredService<ioptions<identityserveroptions>>().Value)
             // .NET Native DI Abstraction
             RegisterServices(services);
         }

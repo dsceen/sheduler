@@ -6,16 +6,13 @@
 
   <ItemGroup>
     <Folder Include="Enums\" />
-    <Folder Include="Anotation\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Hangfire.Core">
-      <HintPath>..\..\..\..\Users\scn\.nuget\packages\hangfire.core\1.7.0-beta1\lib\netstandard1.3\Hangfire.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Hangfire.MemoryStorage.Core">
-      <HintPath>..\..\..\..\Users\scn\.nuget\packages\hangfire.memorystorage.core\1.4.0\lib\netstandard1.3\Hangfire.MemoryStorage.Core.dll</HintPath>
-    </Reference>
+    <PackageReference Include="HangFire" Version="1.7.0-beta1" />
+    <PackageReference Include="Hangfire.MemoryStorage.Core" Version="1.4.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
   </ItemGroup>
 
 </Project>

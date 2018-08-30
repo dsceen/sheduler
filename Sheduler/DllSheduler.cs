@@ -16,13 +16,14 @@ namespace Sheduler.Core
 
         public void Start()
         {
-            RecurringJob.AddOrUpdate(() => Console.WriteLine("Do work every minute " + DateTime.Now),
-                Cron.MinuteInterval(1));
+            DllShedulerServer.Instance.Start();
+            //RecurringJob.AddOrUpdate(() => Console.WriteLine("Do work every minute " + DateTime.Now),
+            //    Cron.MinuteInterval(1));
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            DllShedulerServer.Instance.Stop();
         }
     }
 }
