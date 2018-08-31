@@ -1,6 +1,6 @@
 ﻿using  Sheduler.Core.Configuration;
 
-namespace Sheduler.Core.Interfaces
+namespace Sheduler.Core
 {
     public class ShedulerCreateContext
     {
