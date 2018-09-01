@@ -39,14 +39,12 @@ namespace Sheduler.Core
         {
             lock (StatusLocker)
             {
-                if (!IsStarted)
-                {
-                    InitializeWorkers();
-                    StartWorkers();
-                    _logger.LogInformation("Started");
-                    _shedulerNotification.SendNotificationAsync("Sheduler started");
-                    IsStarted = true;
-                }
+                if (IsStarted) return;
+                InitializeWorkers();
+                StartWorkers();
+                _logger.LogInformation("Started");
+                _shedulerNotification.SendNotificationAsync("Sheduler started");
+                IsStarted = true;
             }
         }
 
@@ -54,13 +52,11 @@ namespace Sheduler.Core
         {
             lock (StatusLocker)
             {
-                if (IsStarted)
-                {
-                    StopAllWorkers();
-                    _logger.LogInformation("Stoped");
-                    _shedulerNotification.SendNotificationAsync("Sheduler stoped");
-                    IsStarted = false;
-                }
+                if (!IsStarted) return;
+                StopAllWorkers();
+                _logger.LogInformation("Stoped");
+                _shedulerNotification.SendNotificationAsync("Sheduler stoped");
+                IsStarted = false;
             }
         }
 
@@ -84,8 +80,6 @@ namespace Sheduler.Core
                         var asemblyLoader = new AssemblyLoader(directoryInfo.FullName);
                         var asm = asemblyLoader.LoadFromAssemblyPath(worker.PathToDll);
                         var type = asm.GetType("Worker.Worker");
-                        var res = new ConfigurationBuilder().AddJsonFile(worker.PathToConfig).Build();
-                        var res2 = res["targetUrl"];
 
                         IDllWorker initWorker = new DllWorker
                         {
@@ -110,6 +104,7 @@ namespace Sheduler.Core
             foreach (var worker in Workers)
             {
                 RecurringJob.AddOrUpdate<IDllSheduler>(worker.WorkerId.ToString(), sheduler => sheduler.DoWorkerJob(worker.WorkerId), worker.Settings.StartAt);
+                
             }
         }
 
@@ -129,10 +124,10 @@ namespace Sheduler.Core
                 _logger.LogError("Worker no found: Id = {0}", workerId);
                 throw new Exception($"Worker no found: Id = {workerId}");
             }
-            
-            var res = dllWorker.Configuration["targetUrl"];
+
             var result = await dllWorker.Worker.StartAsync();
-            _logger.LogInformation($"Work for worker {dllWorker.WorkerId} has executed with result: \r\n \"{result}\"");
+            _logger.LogInformation(
+                $"Job for worker {dllWorker.WorkerId} has done with result: {Environment.NewLine} \"{result}\"");
         }
     }
 }
