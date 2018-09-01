@@ -84,6 +84,8 @@ namespace Sheduler.Core
                         var asemblyLoader = new AssemblyLoader(directoryInfo.FullName);
                         var asm = asemblyLoader.LoadFromAssemblyPath(worker.PathToDll);
                         var type = asm.GetType("Worker.Worker");
+                        var res = new ConfigurationBuilder().AddJsonFile(worker.PathToConfig).Build();
+                        var res2 = res["targetUrl"];
 
                         IDllWorker initWorker = new DllWorker
                         {
@@ -92,6 +94,7 @@ namespace Sheduler.Core
                             Configuration = new ConfigurationBuilder().AddJsonFile(worker.PathToConfig).Build()
                         };
 
+                        initWorker.Worker.Services.AddSingleton(initWorker.Configuration);
                         Workers.Add(initWorker);
                     }
                     catch (Exception e)
@@ -126,6 +129,8 @@ namespace Sheduler.Core
                 _logger.LogError("Worker no found: Id = {0}", workerId);
                 throw new Exception($"Worker no found: Id = {workerId}");
             }
+            
+            var res = dllWorker.Configuration["targetUrl"];
             var result = await dllWorker.Worker.StartAsync();
             _logger.LogInformation($"Work for worker {dllWorker.WorkerId} has executed with result: \r\n \"{result}\"");
         }

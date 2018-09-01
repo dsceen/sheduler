@@ -64,6 +64,7 @@ namespace ShedulerWeb
                 sheduler.Start();
         }
 
+
         private static void RegisterServices(IServiceCollection services)
         {
             // Adding dependencies from another layers (isolated from Presentation)
