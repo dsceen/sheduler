@@ -22,7 +22,7 @@ namespace Sheduler.Infrastructure.IoC
             //Notification service
             services.AddTransient<IShedulerNotification, NotificationService>();
 
-            // Hangfire library for background jobs
+            // Hangfire library for background jobs. www.hangfire.io
             services.AddHangfire(x => x.UseMemoryStorage());
 
         }

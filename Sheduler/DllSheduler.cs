@@ -43,9 +43,6 @@ namespace Sheduler.Core
                 {
                     InitializeWorkers();
                     StartWorkers();
-                    //ToDo: do work
-                    //RecurringJob.AddOrUpdate(() => Console.WriteLine("Do work every minute " + DateTime.Now),
-                    //Cron.MinuteInterval(1));
                     _logger.LogInformation("Started");
                     _shedulerNotification.SendNotificationAsync("Sheduler started");
                     IsStarted = true;
@@ -59,7 +56,7 @@ namespace Sheduler.Core
             {
                 if (IsStarted)
                 {
-                    //ToDo: do work
+                    StopAllWorkers();
                     _logger.LogInformation("Stoped");
                     _shedulerNotification.SendNotificationAsync("Sheduler stoped");
                     IsStarted = false;
@@ -109,7 +106,15 @@ namespace Sheduler.Core
         {
             foreach (var worker in Workers)
             {
-                RecurringJob.AddOrUpdate<IDllSheduler>(worker.WorkerId.ToString(), sheduler => sheduler.DoWorkerJob(worker.WorkerId), Cron.Minutely);
+                RecurringJob.AddOrUpdate<IDllSheduler>(worker.WorkerId.ToString(), sheduler => sheduler.DoWorkerJob(worker.WorkerId), worker.Settings.StartAt);
+            }
+        }
+
+        private void StopAllWorkers()
+        {
+            foreach (var worker in Workers)
+            {
+                RecurringJob.RemoveIfExists(worker.WorkerId.ToString());
             }
         }
 
