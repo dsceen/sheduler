@@ -3,12 +3,14 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Sheduler.Worker.Abstraction;
 
-namespace SimpleWorker
+namespace Worker
 {
-    public class SimpleWorker : IWorker
+    public class Worker : IWorker
     {
+        private const string WorkerName = "SimpleWorker";
+
         private readonly ServiceProvider _provider;
-        public SimpleWorker()
+        public Worker()
         {
             var services = new ServiceCollection();
             //services.AddSingleton<MyParam>();
@@ -18,12 +20,12 @@ namespace SimpleWorker
         }
 
         public IServiceCollection Services { get; }
-        public Task<bool> StartAsync()
+        public Task<string> StartAsync()
         {
             return Task.Run(() =>
             {
                 Task.Delay(5000);
-                return true;
+                return $"{WorkerName} completed a job. {DateTime.Now}";
             });
         }
 

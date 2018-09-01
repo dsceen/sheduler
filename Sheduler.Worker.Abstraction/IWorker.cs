@@ -6,6 +6,6 @@ namespace Sheduler.Worker.Abstraction
     public interface IWorker
     {
         IServiceCollection Services { get; }
-        Task<bool> StartAsync();
+        Task<string> StartAsync();
     }
 }

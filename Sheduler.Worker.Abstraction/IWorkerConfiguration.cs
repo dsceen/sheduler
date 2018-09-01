@@ -2,6 +2,6 @@
 {
     public interface IWorkerConfiguration
     {
-        string Target { get; set; }
+
     }
 }
