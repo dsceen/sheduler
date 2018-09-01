@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sheduler.Core", "Sheduler\Sheduler.Core.csproj", "{87D0CAC6-B29F-4AD4-8DC6-35021DF5497E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShedulerConsoleApp", "ShedulerConsoleApp\ShedulerConsoleApp.csproj", "{B46B4DF5-C07D-4521-93F7-17AE246DCD67}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShedulerWeb", "ShedulerWeb\ShedulerWeb.csproj", "{F3A6245F-1D42-4F4A-B719-93D428CDB7E4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sheduler.Infrastructure", "Sheduler.Infrastructure\Sheduler.Infrastructure.csproj", "{AF8C4E0C-B351-49BA-B938-0C7514DB2FE8}"
@@ -27,10 +25,6 @@ Global
 		{87D0CAC6-B29F-4AD4-8DC6-35021DF5497E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87D0CAC6-B29F-4AD4-8DC6-35021DF5497E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87D0CAC6-B29F-4AD4-8DC6-35021DF5497E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B46B4DF5-C07D-4521-93F7-17AE246DCD67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B46B4DF5-C07D-4521-93F7-17AE246DCD67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B46B4DF5-C07D-4521-93F7-17AE246DCD67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B46B4DF5-C07D-4521-93F7-17AE246DCD67}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F3A6245F-1D42-4F4A-B719-93D428CDB7E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F3A6245F-1D42-4F4A-B719-93D428CDB7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3A6245F-1D42-4F4A-B719-93D428CDB7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
