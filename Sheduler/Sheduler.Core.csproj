@@ -1,18 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Enums\**" />
-    <Compile Remove="Extensions\**" />
-    <EmbeddedResource Remove="Enums\**" />
-    <EmbeddedResource Remove="Extensions\**" />
-    <None Remove="Enums\**" />
-    <None Remove="Extensions\**" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="HangFire" Version="1.7.0-beta1" />
     <PackageReference Include="Hangfire.MemoryStorage.Core" Version="1.4.0" />

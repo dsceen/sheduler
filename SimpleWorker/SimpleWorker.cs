@@ -26,5 +26,7 @@ namespace SimpleWorker
                 return true;
             });
         }
+
+        private string Target { get; set; }
     }
 }

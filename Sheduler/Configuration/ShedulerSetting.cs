@@ -6,6 +6,6 @@ namespace Sheduler.Core.Configuration
     {
         public bool AutoStart { get; set; }
 
-        public List<string> Workers { get; set; }
+        public List<WorkerSetting> Workers { get; set; }
     }
 }
