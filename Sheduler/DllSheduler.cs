@@ -11,7 +11,6 @@ namespace Sheduler.Core
         private readonly ShedulerSetting _shedulerSetting;
         private readonly ILogger _logger;
         private readonly IShedulerNotification _shedulerNotification;
-        private bool _status;
 
         private static readonly object StatusLocker = new object();
 
@@ -26,14 +25,14 @@ namespace Sheduler.Core
         {
             lock (StatusLocker)
             {
-                if (!_status)
+                if (!IsStarted)
                 {
                     _logger.LogInformation("Started");
                     _shedulerNotification.SendNotificationAsync("Sheduler started");
                     //ToDo: do work
                     //RecurringJob.AddOrUpdate(() => Console.WriteLine("Do work every minute " + DateTime.Now),
                     //Cron.MinuteInterval(1));
-                    _status = true;
+                    IsStarted = true;
                 }
             }
         }
@@ -42,13 +41,15 @@ namespace Sheduler.Core
         {
             lock (StatusLocker)
             {
-                if (_status)
+                if (IsStarted)
                 {
                     _logger.LogInformation("Stoped");
                     //ToDo: do work
-                    _status = false;
+                    IsStarted = false;
                 }
             }
         }
+
+        public bool IsStarted { get; private set; }
     }
 }

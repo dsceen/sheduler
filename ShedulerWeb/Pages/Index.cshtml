@@ -2,5 +2,11 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    var status = (bool?)ViewData["Status"];
 }
 <h1>Sheduler status:</h1>
+<div>
+    <ul>
+        <li>@Html.Raw(status.GetValueOrDefault() ? "Enabled" : "Disabled")</li>
+    </ul>
+</div>

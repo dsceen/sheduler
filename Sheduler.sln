@@ -5,11 +5,17 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sheduler.Core", "Sheduler\Sheduler.Core.csproj", "{87D0CAC6-B29F-4AD4-8DC6-35021DF5497E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShedulerConsoleApp", "ShedulerConsoleApp\ShedulerConsoleApp.csproj", "{B46B4DF5-C07D-4521-93F7-17AE246DCD67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShedulerConsoleApp", "ShedulerConsoleApp\ShedulerConsoleApp.csproj", "{B46B4DF5-C07D-4521-93F7-17AE246DCD67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShedulerWeb", "ShedulerWeb\ShedulerWeb.csproj", "{F3A6245F-1D42-4F4A-B719-93D428CDB7E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShedulerWeb", "ShedulerWeb\ShedulerWeb.csproj", "{F3A6245F-1D42-4F4A-B719-93D428CDB7E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sheduler.Infrastructure", "Sheduler.Infrastructure\Sheduler.Infrastructure.csproj", "{AF8C4E0C-B351-49BA-B938-0C7514DB2FE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sheduler.Infrastructure", "Sheduler.Infrastructure\Sheduler.Infrastructure.csproj", "{AF8C4E0C-B351-49BA-B938-0C7514DB2FE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sheduler.Worker.Abstraction", "Sheduler.Worker.Abstraction\Sheduler.Worker.Abstraction.csproj", "{4A121E64-9153-432F-8C76-1CC283566A79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workers", "Workers", "{6E650CB5-EF7D-4645-94CE-50BE411D909D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWorker", "SimpleWorker\SimpleWorker.csproj", "{BE8B0A87-4108-41DE-880C-EF004A13DDCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +39,20 @@ Global
 		{AF8C4E0C-B351-49BA-B938-0C7514DB2FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF8C4E0C-B351-49BA-B938-0C7514DB2FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF8C4E0C-B351-49BA-B938-0C7514DB2FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A121E64-9153-432F-8C76-1CC283566A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A121E64-9153-432F-8C76-1CC283566A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A121E64-9153-432F-8C76-1CC283566A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A121E64-9153-432F-8C76-1CC283566A79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE8B0A87-4108-41DE-880C-EF004A13DDCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8B0A87-4108-41DE-880C-EF004A13DDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8B0A87-4108-41DE-880C-EF004A13DDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8B0A87-4108-41DE-880C-EF004A13DDCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BE8B0A87-4108-41DE-880C-EF004A13DDCA} = {6E650CB5-EF7D-4645-94CE-50BE411D909D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {62A0079A-2807-418B-8709-FFA9453CC635}

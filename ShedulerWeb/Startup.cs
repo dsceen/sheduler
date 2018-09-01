@@ -43,7 +43,7 @@ namespace ShedulerWeb
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IDllSheduler sheduler)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IDllSheduler sheduler, ShedulerSetting shedulerSetting)
         {
             if (env.IsDevelopment())
             {
@@ -60,9 +60,8 @@ namespace ShedulerWeb
             app.UseMvc();
             app.UseHangfireServer();
 
-            sheduler.Start();
-            //RecurringJob.AddOrUpdate(() => Console.WriteLine("Do work every minute " + DateTime.Now),
-            //    Cron.MinuteInterval(1));
+            if(shedulerSetting.AutoStart)
+                sheduler.Start();
         }
 
         private static void RegisterServices(IServiceCollection services)
