@@ -1,4 +1,4 @@
-﻿using  Sheduler.Core.Configuration;
+﻿using Sheduler.Core.Configuration;
 using Sheduler.Core.Interfaces;
 
 namespace Sheduler.Core

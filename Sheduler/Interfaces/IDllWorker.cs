@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Sheduler.Core.Configuration;
 using Sheduler.Worker.Abstraction;
+using System;
 
 namespace Sheduler.Core.Interfaces
 {

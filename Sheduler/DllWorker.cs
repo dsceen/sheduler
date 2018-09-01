@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
 using Sheduler.Core.Configuration;
 using Sheduler.Core.Interfaces;
 using Sheduler.Worker.Abstraction;
+using System;
 
 namespace Sheduler.Core
 {

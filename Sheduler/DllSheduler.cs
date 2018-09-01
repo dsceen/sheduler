@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Hangfire;
-using Hangfire.Common;
+﻿using Hangfire;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Sheduler.Core.Configuration;
 using Sheduler.Core.Interfaces;
-using Microsoft.Extensions.Logging;
 using Sheduler.Core.System;
 using Sheduler.Worker.Abstraction;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Sheduler.Core

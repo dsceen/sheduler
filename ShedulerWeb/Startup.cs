@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Sheduler.Core.Configuration;
 using Sheduler.Core.Interfaces;
 using Sheduler.Infrastructure.IoC;
