@@ -7,5 +7,7 @@ namespace Sheduler.Core.Configuration
         public bool AutoStart { get; set; }
 
         public List<WorkerSetting> Workers { get; set; }
+
+        public int RestartAfterFailCount { get; set; }
     }
 }

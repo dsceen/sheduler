@@ -14,7 +14,5 @@
         ///45 17 7 6 * *                       Every year, on June 7th at 17:45<br/>
         ///</summary>
         public string StartAt { get; set; }
-
-        public int RestartAfterFailCount { get; set; }
     }
 }
