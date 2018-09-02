@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 
 namespace ShedulerWeb
@@ -32,8 +33,7 @@ namespace ShedulerWeb
                         .AddJsonFile("appsettings.json")
                         .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                         .AddJsonFile($"appsettings.{systemType}.json", true);
-
-                })
+                }).ConfigureLogging((hostingContext, builder) => { builder.AddFile("Logs/{Date}.txt"); })
                 .CaptureStartupErrors(true)
                 .UseStartup<Startup>();
     }
