@@ -1,12 +1,28 @@
 ﻿@page
-@model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    var status = (bool?)ViewData["Status"];
 }
-<h1>Sheduler status:</h1>
-<div>
-    <ul>
-        <li>@Html.Raw(status.GetValueOrDefault() ? "Enabled" : "Disabled")</li>
-    </ul>
+<h2>Sheduler status: <strong id="ttdisplay"></strong></h2>
+<div class="row">
+    <div class="col-lg-12">
+        <input id="ttbtnStart" class="btn btn-success" type="button" value="Start"/>
+        <input id="ttbtnStop" class="btn btn-danger" type="button" value="Stop"/>
+    </div>
 </div>
+
+
+@section scripts {
+    <script type="text/javascript" src="~/js/TUpdater.js"></script>
+
+    <script type="text/javascript">
+        $('#ttdisplay').statusUpdater();
+
+        $('#ttbtnStart').click(function () {
+            $.post("/start");
+        });
+
+        $('#ttbtnStop').click(function () {
+            $.post("/stop");
+        });
+    </script>
+}
